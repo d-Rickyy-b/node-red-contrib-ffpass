@@ -1,0 +1,238 @@
+<!--Section for the configuration node-->
+<script type="text/javascript">
+    RED.nodes.registerType('ffpass_config',{
+        category: 'config',
+        defaults: {
+            ford_username: {value:"", type:"text", required:true},
+            ford_password: {value:"", type:"password", required:true},
+            vin: {value:"", type:"password", required:true}
+        },
+        label: function() {
+            return "ffpass ("+this.ford_username+")";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ffpass_config">
+    <div class="form-row">
+        <label for="node-config-input-ford_username"><i class="fa fa-tag"></i> Email</label>
+        <input type="text" id="node-config-input-ford_username" placeholder="FordPass Email">
+    </div>
+
+    <div class="form-row">
+        <label for="node-config-input-ford_password"><i class="fa fa-key"></i> Password</label>
+        <input type="password" id="node-config-input-ford_password" placeholder="Password">
+    </div>
+
+    <div class="form-row">
+        <label for="node-config-input-vin"><i class="fa fa-car"></i> VIN</label>
+        <input type="password" id="node-config-input-vin" placeholder="Vehicle Identification Number">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="ffpass_config">
+    <p>Configuration node for all ffpass nodes.</p>
+</script>
+
+<!--Section for the status node-->
+<script type="text/javascript">
+    RED.nodes.registerType('ffpass-status',{
+        category: 'FordPass',
+        color: '#C0DEED',
+        defaults: {
+            name: {value:""},
+            config: {value:"", type:"ffpass_config", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-car",
+        label: function() {
+            return this.name||"ffpass status";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ffpass-status">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-tag"></i> Config</label>
+        <input type="text" id="node-input-config" placeholder="Config">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="ffpass-status">
+    <p>Fetch the status of your car from the FordPass API</p>
+</script>
+
+
+<!--Section for the command node-->
+<script type="text/javascript">
+    RED.nodes.registerType('ffpass-command',{
+        category: 'FordPass',
+        color: '#C0DEED',
+        defaults: {
+            name: {value:""},
+            config: {value:"", type:"ffpass_config", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-car",
+        label: function() {
+            return this.name||"ffpass command";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ffpass-command">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-tag"></i> Config</label>
+        <input type="text" id="node-input-config" placeholder="Config">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="ffpass-command">
+    <p>Issue commands ("lock", "unlock", "start", "stop") via msg.payload towards the FordPass API.</p>
+</script>
+
+
+<!--Section for individual command nodes-->
+<!--Section for lock node-->
+<script type="text/javascript">
+    RED.nodes.registerType('ffpass-lock',{
+        category: 'FordPass',
+        color: '#C0DEED',
+        defaults: {
+            name: {value:""},
+            config: {value:"", type:"ffpass_config", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-car",
+        label: function() {
+            return this.name||"ffpass lock";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ffpass-lock">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-tag"></i> Config</label>
+        <input type="text" id="node-input-config" placeholder="Config">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="ffpass-lock">
+    <p>Locks the car provided via config. Does not depend on the passed msg.</p>
+</script>
+
+
+<!--Section for unlock node-->
+<script type="text/javascript">
+    RED.nodes.registerType('ffpass-unlock',{
+        category: 'FordPass',
+        color: '#C0DEED',
+        defaults: {
+            name: {value:""},
+            config: {value:"", type:"ffpass_config", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-car",
+        label: function() {
+            return this.name||"ffpass unlock";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ffpass-unlock">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-tag"></i> Config</label>
+        <input type="text" id="node-input-config" placeholder="Config">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="ffpass-unlock">
+    <p>Unlocks the car provided via config. Does not depend on the passed msg.</p>
+</script>
+
+<!--Section for start node-->
+<script type="text/javascript">
+    RED.nodes.registerType('ffpass-start',{
+        category: 'FordPass',
+        color: '#C0DEED',
+        defaults: {
+            name: {value:""},
+            config: {value:"", type:"ffpass_config", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-car",
+        label: function() {
+            return this.name||"ffpass start";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ffpass-start">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-tag"></i> Config</label>
+        <input type="text" id="node-input-config" placeholder="Config">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="ffpass-start">
+    <p>Starts the car provided via config. Does not depend on the passed msg.</p>
+</script>
+
+
+<!--Section for start node-->
+<script type="text/javascript">
+    RED.nodes.registerType('ffpass-stop',{
+        category: 'FordPass',
+        color: '#C0DEED',
+        defaults: {
+            name: {value:""},
+            config: {value:"", type:"ffpass_config", required: true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-car",
+        label: function() {
+            return this.name||"ffpass stop";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ffpass-stop">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-tag"></i> Config</label>
+        <input type="text" id="node-input-config" placeholder="Config">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="ffpass-stop">
+    <p>Starts the car provided via config. Does not depend on the passed msg.</p>
+</script>
