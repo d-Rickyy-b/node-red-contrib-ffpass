@@ -37,8 +37,8 @@ module.exports = function (RED) {
             }
             this.status({ fill: "green", shape: "dot", text: "Status received" });
 
-            send(JSON.stringify(vehicleData));
-
+            msg.payload = vehicleData;
+            send(msg);
             /*
             try {
                 car.auth().then(() => {
@@ -104,7 +104,9 @@ module.exports = function (RED) {
                     done(err)
                 }
                 this.status({ fill: "green", shape: "dot", text: "'" + command + "' issued!" });
-                node.send(JSON.stringify(result));
+                
+                msg.payload = result;
+                node.send(msg);
             } else {
                 node.warn(`Command '${command}' is not available! Please use any of ["start", "stop", "lock", "unlock"].`);
             }
@@ -138,7 +140,8 @@ module.exports = function (RED) {
             }
             this.status({ fill: "green", shape: "dot", text: "'lock' issued!" });
 
-            node.send(JSON.stringify(result));
+            msg.payload = result;
+            node.send(msg);
         });
     }
 
@@ -169,7 +172,8 @@ module.exports = function (RED) {
             }
             this.status({ fill: "green", shape: "dot", text: "'unlock' issued!" });
 
-            node.send(JSON.stringify(result));
+            msg.payload = result;
+            node.send(msg);
         });
     }
 
@@ -200,7 +204,8 @@ module.exports = function (RED) {
             }
             this.status({ fill: "green", shape: "dot", text: "'start' issued!" });
 
-            node.send(JSON.stringify(result));
+            msg.payload = result;
+            node.send(msg);
         });
     }
 
@@ -231,7 +236,8 @@ module.exports = function (RED) {
             }
             this.status({ fill: "green", shape: "dot", text: "'stop' issued!" });
 
-            node.send(JSON.stringify(result));
+            msg.payload = result;
+            node.send(msg);
         });
     }
 
