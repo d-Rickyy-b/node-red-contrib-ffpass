@@ -1,3 +1,4 @@
 *.tgz
 notes.txt
 /node_modules
+.github
