@@ -39,37 +39,6 @@ module.exports = function (RED) {
 
             msg.payload = vehicleData;
             send(msg);
-            /*
-            try {
-                car.auth().then(() => {
-                    node.warn("Auth successful")
-                    this.status({fill:"green",shape:"dot",text:"Auth successful"});
-                },
-                () => {
-                    node.warn("Auth failed")
-                    this.status({fill:"red",shape:"dot",text:"Auth failed"});
-                }).catch((error) => {
-                    node.warn(error);
-                    this.status({fill:"red",shape:"dot",text:"Auth failed"});
-                }).then(() => {
-                    car.status().then(vehicleData => {
-                        node.warn(vehicleData)
-                        this.status({fill:"green",shape:"dot",text:"status successful"});
-                        node.send(JSON.stringify(vehicleData));
-                    }, status => {
-                        node.warn(status)
-                        this.status({fill:"red",shape:"dot",text:"Fetching status failed: " + status});
-                        node.send(JSON.stringify(status));
-                    }).catch((error) => {
-                        node.warn(error);
-                        this.status({fill:"red",shape:"dot",text:"Fetching status failed"});
-                    })
-                });
-            } catch (error) {
-                node.warn(error);
-            }
-            
-            */
         });
     }
 
