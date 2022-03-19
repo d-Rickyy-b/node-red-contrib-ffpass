@@ -1,4 +1,5 @@
 # node-red-contrib-ffpass
+[![npm](https://img.shields.io/npm/v/node-red-contrib-ffpass)](https://www.npmjs.com/package/node-red-contrib-ffpass)
 
 This module enables you to control your Ford car via the FordPass API within [Node-RED](https://nodered.org/).
 You can find the module in the [Node-RED library](https://flows.nodered.org/node/node-red-contrib-ffpass).
