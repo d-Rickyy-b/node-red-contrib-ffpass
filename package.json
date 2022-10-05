@@ -1,15 +1,15 @@
 {
   "name": "node-red-contrib-ffpass",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Use Node-Red to start/stop the engine and lock/unlock the doors on your Ford vehicle. Based on the ffpass npm module.",
   "engines": {
-      "node": ">=12.0.0"
+    "node": ">=14.0.0 <15.0.0 || >=16.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "dependencies": {
-    "ffpass": "^1.0.7"
+    "ffpass": "^1.1.0"
   },
   "keywords": [
     "node-red",

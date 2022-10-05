@@ -27,4 +27,4 @@ Doesn't take any input. Runs the `start` command and hence starts the engine. Th
 Doesn't take any input. Runs the `lock` command and hence stops the engine. The output of the command will be written back to `msg.payload`.
 
 ## ⚠ Important note
-ffpass needs at least Node 12.x because it uses the [fromEntries()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries) method. Hence this module currently doesn't work with any earlier Node version.
+This module needs at least Node 14.x to run. Make sure your Node-Red is up to date and runs on a node version >=14.
